@@ -19,7 +19,7 @@ public class App {
     private static final Map<Integer, Day> DAYS;
 
     public static void main(String[] args) {
-        int day = 2;
+        int day = 1;
         if (args.length != 0) {
             day = Integer.parseInt(args[0]);
         }

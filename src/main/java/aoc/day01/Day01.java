@@ -12,53 +12,40 @@ public class Day01 implements Day {
 
     @Override
     public String part1(List<String> input) {
-        List<Integer> numbers = input.stream()
-                .map(Integer::valueOf)
-                .collect(toList());
+        List<Integer> numbers = formatInput(input);
 
-        Integer number1 = 0;
-        Integer number2 = 0;
-
-        for (Integer number : numbers) {
-            List<Integer> filtered = numbers.stream()
-                    .filter(n -> 2020 - number == n)
-                    .collect(toList());
-
-            if (!filtered.isEmpty()) {
-                number1 = number;
-                number2 = filtered.get(0);
-                break;
-            }
-        }
-
-        //System.out.println("number1: " + number1 + " number2: " + number2);
-        return String.valueOf(number1 * number2);
+        return numbers.stream()
+                .reduce(1, (acc, value) -> {
+                    int diff = 2020 - value;
+                    if (numbers.contains(diff)) {
+                        return diff * value;
+                    } else {
+                        return acc;
+                    }
+                }).toString();
     }
 
     @Override
     public String part2(List<String> input) {
-        List<Integer> numbers = input.stream()
-                .map(Integer::valueOf)
-                .collect(toList());
+        List<Integer> numbers = formatInput(input);
 
-        Integer number1 = 0;
-        Integer number2 = 0;
-        Integer number3 = 0;
+        int product = 0;
 
         for (Integer i : numbers) {
             for (Integer j : numbers) {
-                for (Integer k : numbers) {
-                    if (i + j + k == 2020) {
-                        number1 = i;
-                        number2 = j;
-                        number3 = k;
-                        break;
-                    }
+                int l = 2020 - i - j;
+                if (numbers.contains(l)) {
+                    product = i * j * l;
                 }
             }
         }
 
-        //System.out.println("number1: " + number1 + " number2: " + number2 + " number3: " + number3);
-        return String.valueOf(number1 * number2 * number3);
+        return String.valueOf(product);
+    }
+
+    private List<Integer> formatInput(List<String> input) {
+        return input.stream()
+                .map(Integer::valueOf)
+                .collect(toList());
     }
 }

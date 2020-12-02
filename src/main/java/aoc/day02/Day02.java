@@ -27,13 +27,7 @@ public class Day02 implements Day {
 
     private boolean filterPredicatePart2(String s) {
         PasswordItem passwordItem = new PasswordItem(s).invoke();
-        boolean firstPosContainsLetter = positionContainsLetter(passwordItem, passwordItem.min)
-                || positionContainsLetter(passwordItem, passwordItem.max);
-        boolean secondPosContainsLetter = positionContainsLetter(passwordItem, passwordItem.min)
-                && positionContainsLetter(passwordItem, passwordItem.max);
-
-        //System.out.println(password.charAt(min - 1) + " == " + letter + " || " + password.charAt(max - 1) + " == " + letter + ": " + (b && !b2));
-        return firstPosContainsLetter && !secondPosContainsLetter;
+        return positionContainsLetter(passwordItem, passwordItem.min) ^ positionContainsLetter(passwordItem, passwordItem.max);
     }
 
     private boolean positionContainsLetter(PasswordItem passwordItem, int position) {
