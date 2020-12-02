@@ -12,13 +12,17 @@ public class Day01 implements Day {
 
     @Override
     public String part1(List<String> input) {
-        List<Integer> numbers = input.stream().map(Integer::valueOf).collect(toList());
+        List<Integer> numbers = input.stream()
+                .map(Integer::valueOf)
+                .collect(toList());
 
         Integer number1 = 0;
         Integer number2 = 0;
 
         for (Integer number : numbers) {
-            List<Integer> filtered = numbers.stream().filter(n -> 2020 - number == n).collect(toList());
+            List<Integer> filtered = numbers.stream()
+                    .filter(n -> 2020 - number == n)
+                    .collect(toList());
 
             if (!filtered.isEmpty()) {
                 number1 = number;
@@ -27,13 +31,15 @@ public class Day01 implements Day {
             }
         }
 
-        System.out.println("number1: " + number1 + " number2: " + number2);
+        //System.out.println("number1: " + number1 + " number2: " + number2);
         return String.valueOf(number1 * number2);
     }
 
     @Override
     public String part2(List<String> input) {
-        List<Integer> numbers = input.stream().map(Integer::valueOf).collect(toList());
+        List<Integer> numbers = input.stream()
+                .map(Integer::valueOf)
+                .collect(toList());
 
         Integer number1 = 0;
         Integer number2 = 0;
@@ -52,7 +58,7 @@ public class Day01 implements Day {
             }
         }
 
-        System.out.println("number1: " + number1 + " number2: " + number2 + " number3: " + number3);
+        //System.out.println("number1: " + number1 + " number2: " + number2 + " number3: " + number3);
         return String.valueOf(number1 * number2 * number3);
     }
 }

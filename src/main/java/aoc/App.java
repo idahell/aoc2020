@@ -1,6 +1,7 @@
 package main.java.aoc;
 
 import main.java.aoc.day01.Day01;
+import main.java.aoc.day02.Day02;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,29 +18,8 @@ public class App {
 
     private static final Map<Integer, Day> DAYS;
 
-    static {
-        DAYS = new HashMap<>();
-        DAYS.put(1, new Day01());
-    }
-
-    private static List<String> loadInput(int day) {
-        String paddedDay = String.valueOf(day);
-        if (day < 10) {
-            paddedDay = "0" + day;
-        }
-        String fileName = "day" + paddedDay + ".txt";
-
-        String relativeFilePath = "main/resources/";
-
-        try (BufferedReader r = new BufferedReader(new InputStreamReader(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(relativeFilePath + fileName))))) {
-            return r.lines().collect(toList());
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-    }
-
     public static void main(String[] args) {
-        int day = 1;
+        int day = 2;
         if (args.length != 0) {
             day = Integer.parseInt(args[0]);
         }
@@ -59,5 +39,27 @@ public class App {
         }
 
         System.out.println(result);
+    }
+
+    private static List<String> loadInput(int day) {
+        String paddedDay = String.valueOf(day);
+        if (day < 10) {
+            paddedDay = "0" + day;
+        }
+        String fileName = "day" + paddedDay + ".txt";
+
+        String relativeFilePath = "main/resources/";
+
+        try (BufferedReader r = new BufferedReader(new InputStreamReader(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(relativeFilePath + fileName))))) {
+            return r.lines().collect(toList());
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    static {
+        DAYS = new HashMap<>();
+        DAYS.put(1, new Day01());
+        DAYS.put(2, new Day02());
     }
 }
