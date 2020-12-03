@@ -2,6 +2,7 @@ package main.java.aoc;
 
 import main.java.aoc.day01.Day01;
 import main.java.aoc.day02.Day02;
+import main.java.aoc.day03.Day03;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class App {
     private static final Map<Integer, Day> DAYS;
 
     public static void main(String[] args) {
-        int day = 1;
+        int day = 3;
         if (args.length != 0) {
             day = Integer.parseInt(args[0]);
         }
@@ -61,5 +62,6 @@ public class App {
         DAYS = new HashMap<>();
         DAYS.put(1, new Day01());
         DAYS.put(2, new Day02());
+        DAYS.put(3, new Day03());
     }
 }
