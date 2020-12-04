@@ -1,6 +1,6 @@
-package main.java.aoc.day01;
+package aoc.day01;
 
-import main.java.aoc.Day;
+import aoc.Day;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class Day01 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
-        List<Integer> numbers = formatInput(input);
+    public String part1(String input) {
+        /*List<Integer> numbers = formatInput(input);
 
         return numbers.stream()
                 .reduce(1, (acc, value) -> {
@@ -22,12 +22,13 @@ public class Day01 implements Day {
                     } else {
                         return acc;
                     }
-                }).toString();
+                }).toString();*/
+        return "";
     }
 
     @Override
-    public String part2(List<String> input) {
-        List<Integer> numbers = formatInput(input);
+    public String part2(String input) {
+        /*List<Integer> numbers = formatInput(input);
 
         int product = 0;
 
@@ -40,7 +41,8 @@ public class Day01 implements Day {
             }
         }
 
-        return String.valueOf(product);
+        return String.valueOf(product);*/
+        return "";
     }
 
     private List<Integer> formatInput(List<String> input) {

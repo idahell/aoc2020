@@ -1,8 +1,6 @@
-package main.java.aoc.day02;
+package aoc.day02;
 
-import main.java.aoc.Day;
-
-import java.util.List;
+import aoc.Day;
 
 import static java.util.stream.Collectors.toList;
 
@@ -12,17 +10,20 @@ public class Day02 implements Day {
     }
 
     @Override
-    public String part1(List<String> input) {
-        return String.valueOf(input.stream()
+    public String part1(String input) {
+        /*return String.valueOf(input.stream()
                 .filter(this::filterPredicatePart1)
-                .collect(toList()).size());
+                .collect(toList()).size());*/
+        return "";
     }
 
     @Override
-    public String part2(List<String> input) {
+    public String part2(String input) {
+        /*
         return String.valueOf(input.stream()
                 .filter(this::filterPredicatePart2)
-                .collect(toList()).size());
+                .collect(toList()).size());*/
+        return "";
     }
 
     private boolean filterPredicatePart2(String s) {
