@@ -2,9 +2,10 @@ package aoc.Day05;
 
 import aoc.Day;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static aoc.Utils.formatInput;
 
 public class Day05 implements Day {
     @Override
@@ -27,10 +28,6 @@ public class Day05 implements Day {
                 .collect(Collectors.toList());
 
         return String.valueOf(boardingPasses.stream().reduce(boardingPasses.get(0), (acc, value) -> acc + 1 == value ? value : acc) + 1);
-    }
-
-    private List<String> formatInput(String input) {
-        return Arrays.stream(input.split("\n")).collect(Collectors.toList());
     }
 
     private Integer getSeatId(String value) {

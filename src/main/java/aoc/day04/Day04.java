@@ -16,14 +16,17 @@ public class Day04 implements Day {
     @Override
     public String part1(String input) {
 
-        List<String> formattedInput = Arrays.stream(input.split("\n\n"))
-                .collect(Collectors.toList());
-
-        long count = formattedInput.stream()
+        long count = formatInput(input).stream()
                 .filter(this::isValidPassportPart1)
                 .count();
 
         return String.valueOf(count);
+    }
+
+    private List<String> formatInput(String input) {
+        return Arrays.stream(input.split("\n\n"))
+                .map(s -> s.replaceAll("\n", " "))
+                .collect(Collectors.toList());
     }
 
     private boolean isValidPassportPart1(String s) {
@@ -38,9 +41,7 @@ public class Day04 implements Day {
 
     @Override
     public String part2(String input) {
-        List<String> formattedInput = Arrays.stream(input.split("\n\n"))
-                .map(s -> s.replaceAll("\n", " "))
-                .collect(Collectors.toList());
+        List<String> formattedInput = formatInput(input);
 
         long count = formattedInput.stream()
                 .filter(this::isValidPassportPart2)

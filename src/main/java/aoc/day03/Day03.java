@@ -2,22 +2,21 @@ package aoc.day03;
 
 import aoc.Day;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static aoc.Utils.formatInput;
 
 public class Day03 implements Day {
 
     @Override
     public String part1(String input) {
-        List<String> formattedInput = Arrays.stream(input.split("\n")).collect(Collectors.toList());
-        return String.valueOf(getTreesForSlope(formattedInput, 3, 1));
+        return String.valueOf(getTreesForSlope(formatInput(input), 3, 1));
     }
 
     @Override
     public String part2(String input) {
 
-        List<String> formattedInput = Arrays.stream(input.split("\n")).collect(Collectors.toList());
+        List<String> formattedInput = formatInput(input);
 
         long sum = getTreesForSlope(formattedInput, 1, 1)
                 * getTreesForSlope(formattedInput, 3, 1)

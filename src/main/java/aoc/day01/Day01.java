@@ -4,7 +4,7 @@ import aoc.Day;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
+import static aoc.Utils.formatInputToIntList;
 
 public class Day01 implements Day {
     public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class Day01 implements Day {
 
     @Override
     public String part1(String input) {
-        /*List<Integer> numbers = formatInput(input);
+        List<Integer> numbers = formatInputToIntList(input);
 
         return numbers.stream()
                 .reduce(1, (acc, value) -> {
@@ -22,13 +22,12 @@ public class Day01 implements Day {
                     } else {
                         return acc;
                     }
-                }).toString();*/
-        return "";
+                }).toString();
     }
 
     @Override
     public String part2(String input) {
-        /*List<Integer> numbers = formatInput(input);
+        List<Integer> numbers = formatInputToIntList(input);
 
         int product = 0;
 
@@ -41,13 +40,6 @@ public class Day01 implements Day {
             }
         }
 
-        return String.valueOf(product);*/
-        return "";
-    }
-
-    private List<Integer> formatInput(List<String> input) {
-        return input.stream()
-                .map(Integer::valueOf)
-                .collect(toList());
+        return String.valueOf(product);
     }
 }
