@@ -13,13 +13,28 @@ public class Day05 implements Day {
 
         return formattedInput.stream()
                 .reduce("0", (acc, value) -> {
-                    long seatId = getRow(value) * 8 + getColumn(value);
+                    Integer seatId = getSeatId(value);
                     return seatId > Integer.valueOf(acc) ? String.valueOf(seatId) : acc;
                 });
     }
 
+    @Override
+    public String part2(String input) {
+        List<String> formattedInput = formatInput(input);
+        List<Integer> boardingPasses = formattedInput.stream()
+                .map(this::getSeatId)
+                .sorted()
+                .collect(Collectors.toList());
+
+        return String.valueOf(boardingPasses.stream().reduce(boardingPasses.get(0), (acc, value) -> acc + 1 == value ? value : acc) + 1);
+    }
+
     private List<String> formatInput(String input) {
         return Arrays.stream(input.split("\n")).collect(Collectors.toList());
+    }
+
+    private Integer getSeatId(String value) {
+        return getRow(value) * 8 + getColumn(value);
     }
 
     private Integer getRow(String value) {
@@ -54,17 +69,5 @@ public class Day05 implements Day {
         }
 
         return (String.valueOf(columnIndexes[2]).equals("L") ? columnMin : columnMax);
-    }
-
-    @Override
-    public String part2(String input) {
-        List<String> formattedInput = formatInput(input);
-        List<Integer> boardingPasses = formattedInput.stream()
-                .map(value -> getRow(value) * 8 + getColumn(value))
-                .sorted()
-                .collect(Collectors.toList());
-
-        return String.valueOf(boardingPasses.stream().reduce(boardingPasses.get(0), (acc, value) -> acc + 1 == value ? value : acc) + 1);
-
     }
 }
