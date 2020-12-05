@@ -1,5 +1,6 @@
 package aoc;
 
+import aoc.Day05.Day05;
 import aoc.day01.Day01;
 import aoc.day02.Day02;
 import aoc.day03.Day03;
@@ -17,7 +18,7 @@ public class App {
     private static final Map<Integer, Day> DAYS;
 
     public static void main(String[] args) {
-        int day = 4;
+        int day = 5;
         if (args.length != 0) {
             day = Integer.parseInt(args[0]);
         }
@@ -65,5 +66,6 @@ public class App {
         DAYS.put(2, new Day02());
         DAYS.put(3, new Day03());
         DAYS.put(4, new Day04());
+        DAYS.put(5, new Day05());
     }
 }

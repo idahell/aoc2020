@@ -1,8 +1,6 @@
 package aoc.day03
 
-
 import spock.lang.Specification
-
 
 class Day03Test extends Specification {
 
