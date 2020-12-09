@@ -16,4 +16,10 @@ public class Utils {
     public static List<String> formatInput(String input) {
         return Arrays.stream(input.split("\n")).collect(Collectors.toList());
     }
+
+    public static List<Long> formatInputToLongList(String input) {
+        return Utils.formatInput(input).stream()
+                .map(Long::parseLong)
+                .collect(toList());
+    }
 }
